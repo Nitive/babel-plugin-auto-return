@@ -1,3 +1,3 @@
-function getOne() {
-	1
+function test(a, b) {
+  1
 }

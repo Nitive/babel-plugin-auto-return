@@ -7,6 +7,7 @@ import { transformFileSync } from 'babel-core'
 describe('Add return', () => {
   const fixturesDir = path.join(__dirname, 'fixtures')
   fs.readdirSync(fixturesDir).map(caseName => {
+    if (caseName.includes('[notest]')) return
     it(caseName, function() {
       const fixtureDir = path.join(fixturesDir, caseName)
       const actualPath = path.join(fixtureDir, 'actual.js')
