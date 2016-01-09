@@ -1,13 +1,9 @@
-import {
- awaitExpression,
- returnStatement,
-} from 'babel-types'
-
+let t = null
 
 function expressionVisitor(path) {
   if (this.returnAdded) return
-  // path.replaceWith(returnStatement(path.node))
-  path.replaceWith(awaitExpression(path.node))
+  // path.replaceWith(t.returnStatement(path.node))
+  path.replaceWith(t.awaitExpression(path.node))
   this.returnAdded = true
 }
 
@@ -32,10 +28,11 @@ function functionDeclarationVisitor(path) {
   })
 }
 
-export default function({ types: t }) {
+export default function ({ types }) {
+  t = types
   return {
     visitor: {
       FunctionDeclaration: functionDeclarationVisitor,
-    }
+    },
   }
 }
