@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-auto-return",
   "version": "0.0.0",
-  "description": "Babel plugin for auto return Ruby and CoffeeScript",
+  "description": "Babel plugin for auto return like in Ruby and CoffeeScript",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register test/*.js"
