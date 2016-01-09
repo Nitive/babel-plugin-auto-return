@@ -1,0 +1,3 @@
+function getOne() {
+	1
+}
