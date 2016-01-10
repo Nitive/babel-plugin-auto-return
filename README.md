@@ -1,5 +1,6 @@
 # Babel Plugin Auto Return
 [![Circle CI](https://circleci.com/gh/Nitive/babel-plugin-auto-return.svg?style=svg)](https://circleci.com/gh/Nitive/babel-plugin-auto-return)
+[![codecov.io](https://codecov.io/github/Nitive/babel-plugin-auto-return/coverage.svg?branch=master)](https://codecov.io/github/Nitive/babel-plugin-auto-return?branch=master)
 🤖 work in progress 🤖
 
 Babel plugin for auto return like in Ruby and CoffeeScript

@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-import 'babel-polyfill'
 
 let t = null
 
