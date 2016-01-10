@@ -16,7 +16,6 @@ function functionVisitor(path) {
   let body = path.node.body.body || path.node.body
   if (typeof body.length !== 'number') { // if it is not array
     body = [body]
-    // console.log(path.node.body)
   }
   if (body.find(node => node.type === 'ReturnStatement')) return
   body.push(t.returnStatement(do {

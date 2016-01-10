@@ -6,6 +6,9 @@ Babel plugin for auto return like in Ruby and CoffeeScript
 
 - [x] plain functions
 - [x] arrow functions
+- [x] ES6 classes support
 - [x] React jsx
 - [x] nested
 - [ ] More tests
+- [ ] Examples
+- [ ] Publish to npm
