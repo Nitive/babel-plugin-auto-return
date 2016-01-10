@@ -4,6 +4,7 @@
   "description": "Babel plugin for auto return like in Ruby and CoffeeScript",
   "main": "src/index.js",
   "scripts": {
+    "build": "babel src/index.js -o dist.js",
     "lint": "eslint src/* test/*.js",
     "pretest": "npm run lint --silent",
     "test:watch": "npm test -- -w",
