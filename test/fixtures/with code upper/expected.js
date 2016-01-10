@@ -1,4 +1,4 @@
 function test() {
   const a = 'something';
-  await a;
+  return a;
 }

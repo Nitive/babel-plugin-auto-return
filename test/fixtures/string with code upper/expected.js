@@ -1,4 +1,4 @@
-function test(a, b) {
+function test() {
   const something = () => 'something';
-  await 'string';
+  return 'string';
 }

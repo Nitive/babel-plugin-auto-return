@@ -1,5 +1,5 @@
-function test(a, b) {
-  await function () {
+function test() {
+  return function () {
     return 'something';
   };
 }

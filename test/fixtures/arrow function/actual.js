@@ -1,3 +1,3 @@
-function test(a, b) {
+function test() {
   () => 'test'
 }

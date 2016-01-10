@@ -1,3 +1,3 @@
-function test(a, b) {
-  await () => 'test';
+function test() {
+  return () => 'test';
 }

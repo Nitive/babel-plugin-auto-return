@@ -1,30 +1,18 @@
+import 'babel-polyfill'
+
 let t = null
 
-function expressionVisitor(path) {
-  if (this.returnAdded) return
-  // path.replaceWith(t.returnStatement(path.node))
-  path.replaceWith(t.awaitExpression(path.node))
-  this.returnAdded = true
-}
-
-function expressionStatementVisitor(path) {
-  if (this.returnAdded || path.node !== this.latestNodeInBody) return
+function functionVisitor(path) {
+  if (path.node.generator) return
+  let body = path.node.body.body || path.node.body
+  if (typeof body.length !== 'number') { // if it is not array
+    body = [body]
+  }
+  if (body.find(node => node.type === 'ReturnStatement')) return
+  body.push(t.returnStatement(body.pop().expression))
   path.traverse({
-    Expression: expressionVisitor,
-  }, { returnAdded: this.returnAdded })
-}
-
-function blockStatementVisitor(path) {
-  const functionBody = path.node.body
-  const latestNodeInBody = functionBody[functionBody.length - 1]
-  path.traverse({
-    ExpressionStatement: expressionStatementVisitor,
-  }, { latestNodeInBody, returnAdded: false })
-}
-
-function functionDeclarationVisitor(path) {
-  path.traverse({
-    BlockStatement: blockStatementVisitor,
+    FunctionDeclaration: functionVisitor,
+    ArrowFunctionExpression: functionVisitor,
   })
 }
 
@@ -32,7 +20,8 @@ export default function ({ types }) {
   t = types
   return {
     visitor: {
-      FunctionDeclaration: functionDeclarationVisitor,
+      FunctionDeclaration: functionVisitor,
+      ArrowFunctionExpression: functionVisitor,
     },
   }
 }

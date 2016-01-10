@@ -1,4 +1,4 @@
-function test(a, b) {
+function test() {
   (function() {
     return 'something';
   })

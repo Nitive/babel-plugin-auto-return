@@ -1,3 +1,3 @@
-function test(a, b) {
-  await React.createElement("div", null);
+function test() {
+  return React.createElement("div", null);
 }

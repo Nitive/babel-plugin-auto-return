@@ -1,3 +1,3 @@
-function test(a, b) {
-  await 1 + 1;
+function test() {
+  return 1 + 1;
 }
