@@ -1,5 +1,5 @@
 function test() {
-  (function nested() {
+  (function () {
     1
   }())
 }

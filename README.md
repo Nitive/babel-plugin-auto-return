@@ -7,4 +7,5 @@ Babel plugin for auto return like in Ruby and CoffeeScript
 - [x] plain functions
 - [x] arrow functions
 - [x] React jsx
-- [ ] nested
+- [x] nested
+- [ ] More tests

@@ -1,8 +1,17 @@
+/* eslint-disable no-use-before-define */
 import 'babel-polyfill'
 
 let t = null
 
+const anyFunctionVisitor = {
+  FunctionExpression: functionVisitor,
+  FunctionDeclaration: functionVisitor,
+  ArrowFunctionExpression: functionVisitor,
+  ClassMethod: functionVisitor,
+}
+
 function functionVisitor(path) {
+  path.traverse(anyFunctionVisitor)
   if (path.node.generator) return
   let body = path.node.body.body || path.node.body
   if (typeof body.length !== 'number') { // if it is not array
@@ -23,18 +32,11 @@ function functionVisitor(path) {
       last.expression
     }
   }))
-  path.traverse({ // nested don't work I do not know why
-    FunctionDeclaration: functionVisitor,
-    ArrowFunctionExpression: functionVisitor,
-  })
 }
 
 export default function ({ types }) {
   t = types
   return {
-    visitor: {
-      FunctionDeclaration: functionVisitor,
-      ArrowFunctionExpression: functionVisitor,
-    },
+    visitor: anyFunctionVisitor,
   }
 }
