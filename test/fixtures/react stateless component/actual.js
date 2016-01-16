@@ -1,5 +1,5 @@
 const Hello = props => {
-  const text = 'hello'
+  const text = 'hello';
   <div>
     <span>{text}</span>
   </div>
