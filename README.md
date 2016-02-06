@@ -10,7 +10,7 @@ Babel plugin for auto return like in Ruby and CoffeeScript
 - [x] ES6 classes support
 - [x] nested
 - [ ] return object
-- [ ] React jsx
+- [x] React jsx
 - [ ] More tests
 - [ ] Examples
 - [ ] Publish to npm
@@ -76,7 +76,6 @@ class Hello extends React.Component {
 ```
 
 #### Stateless component
-_Does not work now_
 ```javascript
 const Hello = props => (
   <div>
@@ -87,7 +86,7 @@ const Hello = props => (
 and when you want to add variable (a lot of corrections)
 ```javascript
 const Hello = props => {
-  const text = 'hello'
+  const text = 'hello';
   return (
     <div>
       <span>{text}</span>
@@ -107,7 +106,7 @@ const Hello = props => {
 and
 ```javascript
 const Hello = props => {
-  const text = 'hello' // just add line
+  const text = 'hello'; // just add line (semicolon required)
   <div>
     <span>{text}</span>
   </div>
